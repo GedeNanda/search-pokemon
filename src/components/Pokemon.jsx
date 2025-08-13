@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import "./Pokemon.css";
 
-// Ubah nama fungsi menjadi komponen dengan huruf kapital
+
 
 function Pokemon() {
   const [showMenu, setShowMenu] = useState(false);
-  const [darkMode, setDarkMode] = useState(false); // default light mode aktif
+  const [darkMode, setDarkMode] = useState(false); 
 
-  // Toggle dark mode (dummy, hanya ganti class pada body)
+
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
@@ -15,7 +15,7 @@ function Pokemon() {
       document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
-  // Pastikan dark mode tidak aktif saat mount
+
   useEffect(() => {
     document.body.classList.remove("dark-mode");
   }, []);
@@ -70,11 +70,11 @@ function Pokemon() {
 
   useEffect(() => {
     getAllPokemon();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [apiUrl]);
 
   const PokemonDetail = () => {
-    // Tambahkan validasi untuk menghindari error saat dataDetail kosong
+
     if (!dataDetail || !dataDetail.sprites) {
       return null;
     }
@@ -108,13 +108,13 @@ function Pokemon() {
 
   return (
     <div className="wrapper">
-      {/* Floating Action Button for Menu */}
+      {}
       <button
         className="fab-menu-btn"
         onClick={() => setShowMenu((v) => !v)}
         aria-label="Menu"
       >
-        {/* Pokeball SVG icon */}
+        {}
         <svg
           width="32"
           height="32"
@@ -175,7 +175,7 @@ function Pokemon() {
           <button type="submit">Cari</button>
         </form>
 
-        {/* Menu Sortir */}
+        {}
         {!searchResult && (
           <div className="sort-menu">
             <label htmlFor="sort-select">Sortir: </label>
@@ -199,7 +199,7 @@ function Pokemon() {
 
         {detail && <PokemonDetail />}
 
-        {/* Search Result */}
+        {}
         {searchResult && (
           <div className="grid" style={{ marginTop: 32 }}>
             {searchResult === "notfound" ? (
@@ -239,7 +239,7 @@ function Pokemon() {
           </div>
         )}
 
-        {/* List All Pokemon */}
+        {}
         {!searchResult && (
           <div className="grid">
             {pokemonList
@@ -265,14 +265,14 @@ function Pokemon() {
                       <img src={item.sprites.front_default} alt={item.name} />
                     </div>
                     <div className="title">{item.name}</div>
-                    {/* Abilities hanya tampil di detail, tidak di kartu utama */}
+                    {}
                   </div>
                 );
               })}
           </div>
         )}
 
-        {/* Pagination Buttons Atas Tengah (tepat di bawah sortir) */}
+        {}
         {!searchResult && (prevUrl || nextUrl) && (
           <div className="pagination-nav-top">
             {prevUrl && (
